@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { getBooks, getBook, postBook } from "../controllers/books.controller.js";
+import { verifyToken } from "../middlewares/auth.middleware.js";
 
 
 const router = Router();
