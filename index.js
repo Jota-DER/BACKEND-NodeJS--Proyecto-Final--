@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 
 import booksRouter from "./src/routes/books.router.js";
+import authRouter from "./src/routes/auth.router.js";
 
 
 const app = express();
@@ -15,6 +16,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/books", booksRouter);
+app.use("/api/auth", authRouter);
 
 const PORT = 3000;
 
