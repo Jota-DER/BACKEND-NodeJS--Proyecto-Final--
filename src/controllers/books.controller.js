@@ -1,4 +1,4 @@
-import { listBooks, findBook, addBook} from "../services/books.service.js";
+import { listBooks, findBook, addBook, removeBook } from "../services/books.service.js";
 
 
 export const getBooks = async (req, res) => {
@@ -49,4 +49,24 @@ res.status(201).json(book);
         error: "Error al crear   el libro" ,
     });
 }
+};
+export const removeBookById = async (req, res) => {
+  try {
+    const book = await removeBook(req.params.id);
+
+    if (!book) {
+      return res.status(404).json({
+        error: "Libro no encontrado",
+      });
+    }
+
+    res.json({
+      message: "Libro eliminado",
+      book,
+    });
+  } catch (error) {
+    res.status(500).json({
+      error: "Error al eliminar libro",
+    });
+  }
 };

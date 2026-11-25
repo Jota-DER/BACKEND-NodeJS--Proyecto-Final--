@@ -1,4 +1,4 @@
-import { collection, getDocs, doc, getDoc, addDoc } from "firebase/firestore";
+import { collection, getDocs, doc, getDoc, addDoc, deleteDoc } from "firebase/firestore";
 import { db } from "../config/firebase.js";
 
 const booksCollection = collection(db, "books");
@@ -35,3 +35,19 @@ export const createBook = async (data) => {
         id: reference.id
     };
 }
+export const deleteBook = async (id) => {
+  const reference = doc(db, "books", id);
+
+  const snapshot = await getDoc(reference);
+
+  if (!snapshot.exists()) {
+    return null;
+  }
+
+  await deleteDoc(reference);
+
+  return {
+    ...snapshot.data(),
+    id: snapshot.id,
+  };
+};
