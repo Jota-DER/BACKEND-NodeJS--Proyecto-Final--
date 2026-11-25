@@ -11,7 +11,7 @@ API REST desarrollada con Node.js y Express para consultar y gestionar libros. U
 
 ## Requisitos
 
-- Node.js 2.0 o superior
+- Node.js 20 o superior
 - Un proyecto de Firebase con Firestore habilitado
 
 ## Estructura del proyecto
@@ -99,7 +99,7 @@ La API queda disponible en `http://localhost:3000`. La ruta `GET /` devuelve un 
 ```json
 {
   "email": "admin@ejemplo.com",
-  "password": "cambia_esta_clave"
+  "password": "clave123"
 }
 ```
 
@@ -128,32 +128,6 @@ Authorization: Bearer <token>
 }
 ```
 
-El título debe ser una cadena no vacía y el precio debe ser un número mayor que cero.
-
-### Prueba rápida en PowerShell
-
-Inicia sesión y guarda el token:
-
-```powershell
-$login = Invoke-RestMethod -Method Post `
-  -Uri "http://localhost:3000/api/auth/login" `
-  -ContentType "application/json" `
-  -Body '{"email":"admin@ejemplo.com","password":"cambia_esta_clave"}'
-
-$token = $login.token
-```
-
-Lista libros y crea uno usando ese token:
-
-```powershell
-Invoke-RestMethod -Uri "http://localhost:3000/api/books"
-
-Invoke-RestMethod -Method Post `
-  -Uri "http://localhost:3000/api/books" `
-  -Headers @{ Authorization = "Bearer $token" } `
-  -ContentType "application/json" `
-  -Body '{"title":"Nombre del libro","price":18000}'
-```
 
 ## Códigos de estado
 
