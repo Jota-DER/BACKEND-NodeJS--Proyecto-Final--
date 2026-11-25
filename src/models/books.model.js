@@ -15,7 +15,7 @@ export const getAllBooks = async () => {
 
 export const getBookById = async (id) => {
     const bookDoc = doc(db, "books", id);
-    const snapshot = await getDoc(reference);
+    const snapshot = await getDoc(bookDoc);
 
     if (!snapshot.exists()) {
         return null;    
