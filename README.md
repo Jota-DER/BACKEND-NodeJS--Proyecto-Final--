@@ -50,7 +50,7 @@ FIREBASE_APP_ID=tu_app_id
 
 JWT_SECRET=una_clave_larga_y_aleatoria_para_desarrollo
 DEMO_EMAIL=admin@ejemplo.com
-DEMO_PASSWORD=clave123
+DEMO_PASSWORD=
 ```
 
 El puerto está configurado actualmente como `3000` en `index.js`; la aplicación no lee `PORT` desde `.env`.
