@@ -144,5 +144,5 @@ Authorization: Bearer <token>
 
 ## Autor
 
-Juan Carlos Derrido  
+Juan C. Derrido  
 [GitHub](https://github.com/Jota-DER)
